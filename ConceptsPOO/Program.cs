@@ -3,17 +3,30 @@
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-try
+Employee e1 = new SalaryEmployee()
 {
-    Console.WriteLine(new Date(2023, 3, 21));
-    Console.WriteLine(new Date(1974, 9, 23));
-    Console.WriteLine(new Date(2024, 2, 29));
-}
-catch (Exception error)
+    Id = 1010,
+    FirstName = "Sandra",
+    LastName = "Morales",
+    BirthDate = new Date(1990,5, 23),
+    HiringDate = new Date(2022, 1,15),
+    IsActive = true,
+    Salary = 1815453.45M,
+};
+
+Employee e2 = new CommissionEmployee()
 {
-    Console.WriteLine(error.Message);
-}
+    Id = 2020,
+    FirstName = "Patricia",
+    LastName = "Gutierrez",
+    BirthDate = new Date(1995,5, 23),
+    HiringDate = new Date(2022, 2,5),
+    IsActive = true,
+    CommissionPercentaje = 0.03F,
+    Sales = 32000000M
+};
 
-
+Console.WriteLine(e1);
+Console.WriteLine(e2);
 
 

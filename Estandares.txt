@@ -1,23 +1,48 @@
 Clases
     - Inician con mayusculas ClaseNueva
 
+    Clase abstracta
+    - Es un objeto que no existe en el mundo real.
+
 Campos 
     - Variables privadas
         De preferencia inician con _nombreVariable
+
+Propiedades 
+    - Inician con mayusculas
+    - Las propiedades son publicas
+    - No dependen de ningun atributo
+
 
 Metodos 
     - Los nombres tienen que ser lo más explicativos posibles.
     - Sus nombres inician con mayusculas la primera palabra.
 
+
     Metodos booleanos 
         - Inician con el nombre IsNombreVariable.
+
+    Metodo abstracto - cursiva
+        - Solo se nombra pero se implementa despues.
 
 Interfaces
     - Inician con la letra INombreInterfaz
 
 Snippets 
     - ctor + tab = Constructor de clase
+    - ctrl + . = Ayuda de vscode y visual studio
+    - prop + tab
 
 Interpolacion de strings 
     return $"{_year}/{_month:00}/{_day:00}";
+
+Herencia 
+    - Se utiliza :
+    - Instanciar clase
+        Employee e1 = new SalaryEmployee();
+
+Tipos de datos
+    - decimal: termina en M (money)
+    - float . termina en F 
+
 
