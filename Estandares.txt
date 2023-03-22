@@ -57,4 +57,9 @@ Data annotations
 add-migration nombre
 update-migration
 
+Async
+	- Devuelven una promesa, no espera 
+Await
+	- Espera una accion 
+
 

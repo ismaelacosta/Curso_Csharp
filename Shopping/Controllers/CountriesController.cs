@@ -46,6 +46,7 @@ namespace Shopping.Controllers
         }
 
         // GET: Countries/Create
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -56,7 +57,7 @@ namespace Shopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Country country)
+        public async Task<IActionResult> Create(Country country)
         {
             if (ModelState.IsValid)
             {
