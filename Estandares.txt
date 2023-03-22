@@ -1,0 +1,23 @@
+Clases
+    - Inician con mayusculas ClaseNueva
+
+Campos 
+    - Variables privadas
+        De preferencia inician con _nombreVariable
+
+Metodos 
+    - Los nombres tienen que ser lo más explicativos posibles.
+    - Sus nombres inician con mayusculas la primera palabra.
+
+    Metodos booleanos 
+        - Inician con el nombre IsNombreVariable.
+
+Interfaces
+    - Inician con la letra INombreInterfaz
+
+Snippets 
+    - ctor + tab = Constructor de clase
+
+Interpolacion de strings 
+    return $"{_year}/{_month:00}/{_day:00}";
+
