@@ -41,6 +41,9 @@ Herencia
     - Instanciar clase
         Employee e1 = new SalaryEmployee();
 
+Interfaces
+    - Se utiliza tambien :
+
 Tipos de datos
     - decimal: termina en M (money)
     - float . termina en F 
