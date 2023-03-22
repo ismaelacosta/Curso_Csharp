@@ -48,4 +48,10 @@ Tipos de datos
     - decimal: termina en M (money)
     - float . termina en F 
 
+Entity Framework
+    - El ORM ya tiene las tablas: User, User Role, Role.
+
+Data annotations
+    - Se escriben con []
+
 
