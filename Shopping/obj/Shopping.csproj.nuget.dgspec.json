@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/ismael/Curso_Csharp/Shopping/Shopping.csproj": {}
+    "D:\\Curso_Csharp\\Shopping\\Shopping.csproj": {}
   },
   "projects": {
-    "/home/ismael/Curso_Csharp/Shopping/Shopping.csproj": {
+    "D:\\Curso_Csharp\\Shopping\\Shopping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ismael/Curso_Csharp/Shopping/Shopping.csproj",
+        "projectUniqueName": "D:\\Curso_Csharp\\Shopping\\Shopping.csproj",
         "projectName": "Shopping",
-        "projectPath": "/home/ismael/Curso_Csharp/Shopping/Shopping.csproj",
-        "packagesPath": "/home/ismael/.nuget/packages/",
-        "outputPath": "/home/ismael/Curso_Csharp/Shopping/obj/",
+        "projectPath": "D:\\Curso_Csharp\\Shopping\\Shopping.csproj",
+        "packagesPath": "C:\\Users\\Ismael\\.nuget\\packages\\",
+        "outputPath": "D:\\Curso_Csharp\\Shopping\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/ismael/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Ismael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,15 +42,21 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0-preview.2.23128.3, )"
+              "version": "[7.0.4, )"
             },
-            "MySql.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.4, )"
             },
-            "Pomelo.EntityFrameworkCore.Mysql": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             }
           },
           "imports": [
@@ -70,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

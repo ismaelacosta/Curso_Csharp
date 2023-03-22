@@ -54,4 +54,7 @@ Entity Framework
 Data annotations
     - Se escriben con []
 
+add-migration nombre
+update-migration
+
 
