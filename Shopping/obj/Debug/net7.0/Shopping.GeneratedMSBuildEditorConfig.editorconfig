@@ -9,77 +9,93 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Shopping
 build_property.RootNamespace = Shopping
-build_property.ProjectDir = D:\Curso_Csharp\Shopping\
+build_property.ProjectDir = C:\Users\ismael.acosta\Documents\Curso_Csharp\Shopping\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Curso_Csharp\Shopping
+build_property.MSBuildProjectDirectory = C:\Users\ismael.acosta\Documents\Curso_Csharp\Shopping
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Curso_Csharp/Shopping/Views/Categories/Create.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Categories/Index.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Categories/_Category.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/_Category.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xfQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/Create.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Categories/_CategoryDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xfQ2F0ZWdvcnlEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/Delete.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/Details.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/Edit.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/Index.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/_Country.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/_Country.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXF9Db3VudHJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Countries/_CountryDetails.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Countries/_CountryDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXF9Db3VudHJ5RGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Home/Index.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Home/Privacy.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Shared/Error.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/_ViewImports.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/_ViewStart.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Curso_Csharp/Shopping/Views/Shared/_Layout.cshtml]
+[C:/Users/ismael.acosta/Documents/Curso_Csharp/Shopping/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-la4u1egryi
