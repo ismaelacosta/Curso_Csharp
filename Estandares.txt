@@ -55,11 +55,18 @@ Data annotations
     - Se escriben con []
 
 add-migration nombre
-update-migration
+update-database
+drop-database
 
 Async
 	- Devuelven una promesa, no espera 
 Await
 	- Espera una accion 
+
+
+try catch
+
+	- Un try puede tener varios catch
+- evitar duplicidad de codigo 
 
 
