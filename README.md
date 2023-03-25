@@ -1,4 +1,4 @@
-# Curso_Csharp
+# Curso C#
 
 ## Roberto Ismael Acosta López
 
