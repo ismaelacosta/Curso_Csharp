@@ -1,17 +1,64 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Shopping.Data;
+using Shopping.Data.Entities;
+using Shopping.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Formas de inyeccion 
+
+/* \
+ * 
+ * Ciclo de vida
+ 1 . Transcient  - Ejecutarlo solo una vez 
+ 2. Scoope - la inyecta cada vez que la necesita y destruye cuando deja de utilizarse (mas comun)
+ 3. Singleton - se inyecta una vez y no lo destruye, lo deja en memoria
+ 
+ */
+
 builder.Services.AddDbContext<DataContext>( o =>
 {
     o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
+//TODO : Make stringest password
+builder.Services.AddIdentity<User, IdentityRole>(cfg =>
+{
+    // Condiciones de los usuarios
+    cfg.User.RequireUniqueEmail = true;
+    cfg.Password.RequireDigit = false;
+    cfg.Password.RequiredUniqueChars = 0;
+    cfg.Password.RequireLowercase = false;
+    cfg.Password.RequireUppercase = false;
+    cfg.Password.RequireNonAlphanumeric = false;
+    cfg.Password.RequiredLength = 6;
+
+}).AddEntityFrameworkStores<DataContext>();
+
+
+builder.Services.AddTransient<SeedDb>();
+builder.Services.AddScoped<IUserHelper, UserHelper>(); // Mandar la interface permite preparar el proyecto para pruebas unitarias
+
 var app = builder.Build();
+
+
+SeedData();
+
+void SeedData()
+{
+    IServiceScopeFactory? scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+    using (IServiceScope? scope = scopedFactory.CreateScope())
+    {
+        SeedDb? service = scope.ServiceProvider.GetService<SeedDb>();
+        service.SeedAsync().Wait();
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -25,6 +72,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

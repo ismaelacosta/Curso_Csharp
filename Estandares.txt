@@ -70,3 +70,27 @@ try catch
 - evitar duplicidad de codigo 
 
 
+//Formas de inyeccion 
+
+/* \
+ * 
+ * Ciclo de vida
+ 1 . Transcient  - Ejecutarlo solo una vez 
+ 2. Scoope - la inyecta cada vez que la necesita y destruye cuando deja de utilizarse (mas comun)
+ 3. Singleton - se inyecta una vez y no lo destruye, lo deja en memoria
+ 
+ */
+
+Guid 
+
+Codigo unico alphanumerico
+Es casi imposible repetir el mismo codigo
+
+
+//TODO para visual studio permite mostrar la lista de pendientes
+
+
+TASK es el void de los metodos asincronos
+
+yopmail - correo falso que es valido para realizar pruebas
+

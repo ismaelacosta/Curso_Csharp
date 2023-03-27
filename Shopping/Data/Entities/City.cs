@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿    using System.ComponentModel.DataAnnotations;
 
 namespace Shopping.Data.Entities
 {
@@ -14,6 +14,9 @@ namespace Shopping.Data.Entities
 
         public State State { get; set; }
 
-        
+
+        public ICollection<User> Users { get; set; }
+
+
     }
 }
