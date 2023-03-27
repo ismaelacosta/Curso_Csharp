@@ -24,10 +24,7 @@ namespace Shopping.Data
             await CheckCountriesAsync();
             await CheckRolesAsync();
 
-            await CheckUserAsync("1010", "Roberto", "Acosta","ismael10barca@yopmail.com","3223114620", "Calle Durazno", UserType.Admin);
-            
-           
-
+            await CheckUserAsync("1010", "Roberto", "Acosta", "ismael10barca@yopmail.com", "3223114620", "Calle Durazno", UserType.Admin);
         }
 
         private async Task<User> CheckUserAsync(
@@ -47,6 +44,7 @@ namespace Shopping.Data
                     FirstName = firstName,
                     LastName = lastName,
                     Email = email,
+                    UserName = email,
                     PhoneNumber = phone,
                     Adrress = address,
                     Document = document,
@@ -54,7 +52,7 @@ namespace Shopping.Data
                     UserType = userType,
                 };
 
-                await _userHelper.AddUserAsync(user, "123456");
+                await _userHelper.AddUserAsync(user,"123456");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
             }
 

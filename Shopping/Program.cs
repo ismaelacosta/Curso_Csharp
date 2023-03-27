@@ -36,7 +36,7 @@ builder.Services.AddIdentity<User, IdentityRole>(cfg =>
     cfg.Password.RequireLowercase = false;
     cfg.Password.RequireUppercase = false;
     cfg.Password.RequireNonAlphanumeric = false;
-    cfg.Password.RequiredLength = 6;
+    //cfg.Password.RequiredLength = 6;
 
 }).AddEntityFrameworkStores<DataContext>();
 

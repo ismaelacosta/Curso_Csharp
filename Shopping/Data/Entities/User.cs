@@ -26,12 +26,11 @@ namespace Shopping.Data.Entities
         public City City { get; set; }
 
         [Display(Name = "Direccion")]
-        [MaxLength(20, ErrorMessage = "El campo {0} debe tener maximo {1} caracteres")]
+        [MaxLength(100, ErrorMessage = "El campo {0} debe tener maximo {1} caracteres")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string Adrress { get; set; }
 
         [Display(Name = "Foto")]
-        
         public Guid ImageId { get; set; }
 
         //TODO : Pendind to put the corerct paths
