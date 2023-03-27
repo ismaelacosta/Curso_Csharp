@@ -40,9 +40,18 @@ builder.Services.AddIdentity<User, IdentityRole>(cfg =>
 
 }).AddEntityFrameworkStores<DataContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/NotAuthorized"; // Problema de login
+    options.AccessDeniedPath = "/Account/NotAuthorized"; // Problema de Access denied
+});
+
+
+
 
 builder.Services.AddTransient<SeedDb>();
 builder.Services.AddScoped<IUserHelper, UserHelper>(); // Mandar la interface permite preparar el proyecto para pruebas unitarias
+builder.Services.AddScoped<IComboHelper, ComboHelper>();
 
 var app = builder.Build();
 
@@ -67,6 +76,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseStatusCodePagesWithReExecute("/error/{0}");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
