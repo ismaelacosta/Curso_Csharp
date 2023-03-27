@@ -52,6 +52,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddTransient<SeedDb>();
 builder.Services.AddScoped<IUserHelper, UserHelper>(); // Mandar la interface permite preparar el proyecto para pruebas unitarias
 builder.Services.AddScoped<IComboHelper, ComboHelper>();
+builder.Services.AddScoped<IBlobHelper, BlobHelper>();
+
 
 var app = builder.Build();
 

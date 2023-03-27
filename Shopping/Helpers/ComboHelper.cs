@@ -32,7 +32,7 @@ namespace Shopping.Helpers
         public async Task<IEnumerable<SelectListItem>> GetComboCitiesAsync(int stateId)
         {
             List<SelectListItem> list = await _context.Cities
-                .Where(s = s => s.Id == stateId)
+                .Where(s => s.Id == stateId)
                 .Select(c => new SelectListItem
             {
                 Text = c.Name,

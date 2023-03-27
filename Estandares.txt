@@ -94,3 +94,18 @@ TASK es el void de los metodos asincronos
 
 yopmail - correo falso que es valido para realizar pruebas
 
+Ajax
+
+	Llammado asyncrono a la pagina
+
+
+Stream - arreglo en memoria de todo el archivo
+
+
+Models - Es la representacion de los datos
+
+enctype="multipart/form-data" - Para que funcione el IForm
+
+
+[JsonIgnore] - ignora la creacion ciclica para el json,  pero en la base de datos es necesario
+

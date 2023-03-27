@@ -33,11 +33,10 @@ namespace Shopping.Data.Entities
         [Display(Name = "Foto")]
         public Guid ImageId { get; set; }
 
-        //TODO : Pendind to put the corerct paths
         [Display(Name = "Foto")]
         public string ImageFullPath => ImageId == Guid.Empty
             ? $"https://localhost:7066/images/noimage.png"
-            : $"https://shoppingprep.blob.core.windows.net/users/{ImageId}";
+            : $"https://shoppingzulu.blob.core.windows.net/users/{ImageId}";
 
 
         [Display(Name = "Tipo de usuario")]
