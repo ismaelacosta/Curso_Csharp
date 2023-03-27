@@ -98,6 +98,11 @@ namespace Shopping.Controllers
                 if (user == null)
                 {
                     ModelState.AddModelError(string.Empty, "Este correo ya esta siendo usado.");
+                    model.Countries = await _comboHelper.GetComboCountriesAsync();
+                    model.States = await _comboHelper.GetComboStatesAsync(model.CountryId);
+                    model.Cities = await _comboHelper.GetComboCitiesAsync(model.StateId);
+
+
                     return View(model);
                 }
 
@@ -115,6 +120,9 @@ namespace Shopping.Controllers
                     return RedirectToAction("Index", "Home");
                 }
             }
+            model.Countries = await _comboHelper.GetComboCountriesAsync();
+            model.States = await _comboHelper.GetComboStatesAsync(model.CountryId);
+            model.Cities = await _comboHelper.GetComboCitiesAsync(model.StateId);
             return View(model);
            }
 

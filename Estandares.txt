@@ -109,3 +109,12 @@ enctype="multipart/form-data" - Para que funcione el IForm
 
 [JsonIgnore] - ignora la creacion ciclica para el json,  pero en la base de datos es necesario
 
+
+Maestros
+
+	- alimentan al sistema 
+	- EStan relacionadas a un crud
+
+Movimientos 
+	- proposito general de la aplicacion 
+
