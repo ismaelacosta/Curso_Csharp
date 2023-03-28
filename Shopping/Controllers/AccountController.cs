@@ -7,6 +7,7 @@ using Shopping.Data.Entities;
 using Shopping.Enums;
 using Shopping.Helpers;
 using Shopping.Models;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Shopping.Controllers
 {
@@ -42,15 +43,24 @@ namespace Shopping.Controllers
         {
             if (ModelState.IsValid)
             {
-                Microsoft.AspNetCore.Identity.SignInResult result = await _userHelper.LoginAsync(model);
+                SignInResult result = await _userHelper.LoginAsync(model);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
                 }
+
+                if (result.IsLockedOut)
+                {
+                    ModelState.AddModelError(string.Empty, "Ha superado el maximo numero de intentos, su cuenta esta bloqueada, intente de nuevo en 5 minutos");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Email o contrasena incorrectos.");
+
+                }
             }
 
 
-            ModelState.AddModelError(string.Empty, "Email o contrasena incorrectos.");
             return View(model);
         }
 
