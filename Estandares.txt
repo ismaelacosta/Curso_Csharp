@@ -118,3 +118,11 @@ Maestros
 Movimientos 
 	- proposito general de la aplicacion 
 
+
+atributo object - Todo es un objeto en C#
+
+
+IdentityResult - Response de algo 
+
+sbefhkpzhzseoqvl
+

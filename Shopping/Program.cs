@@ -29,6 +29,10 @@ builder.Services.AddDbContext<DataContext>( o =>
 //TODO : Make stringest password
 builder.Services.AddIdentity<User, IdentityRole>(cfg =>
 {
+    //Validacion
+    cfg.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
+    cfg.SignIn.RequireConfirmedEmail = true;
+
     // Condiciones de los usuarios
     cfg.User.RequireUniqueEmail = true;
     cfg.Password.RequireDigit = false;
@@ -41,7 +45,9 @@ builder.Services.AddIdentity<User, IdentityRole>(cfg =>
     cfg.Lockout.AllowedForNewUsers = true;
     //cfg.Password.RequiredLength = 6;
 
-}).AddEntityFrameworkStores<DataContext>();
+})
+    .AddDefaultTokenProviders()
+    .AddEntityFrameworkStores<DataContext>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -56,6 +62,8 @@ builder.Services.AddTransient<SeedDb>();
 builder.Services.AddScoped<IUserHelper, UserHelper>(); // Mandar la interface permite preparar el proyecto para pruebas unitarias
 builder.Services.AddScoped<IComboHelper, ComboHelper>();
 builder.Services.AddScoped<IBlobHelper, BlobHelper>();
+builder.Services.AddScoped<IMailHelper,  MailHelper>();
+
 
 
 var app = builder.Build();

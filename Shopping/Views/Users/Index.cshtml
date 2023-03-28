@@ -53,6 +53,9 @@
                                 Tipo
                             </th>
                             <th>
+                                Habilitado
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.ImageFullPath)
                             </th>
                         </tr>
@@ -87,6 +90,9 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.UserType)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmailConfirmed)
                                 </td>
                                 <td>
                                     <div class="zoom">
