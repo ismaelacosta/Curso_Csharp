@@ -13,7 +13,12 @@ public class DataContext : IdentityDbContext<User>
     public DbSet<Country> Countries { get; set; }
     public DbSet<Category> Categories { get; set; }
 
- 
+    public DbSet<Product> Productcs { get; set; }
+    public DbSet<ProductCategory> ProductCategories { get; set; }
+
+    public DbSet<ProductImage> ProductImages { get; set; }
+
+
 
     public DbSet<State> States { get; set; }
 
@@ -24,6 +29,9 @@ public class DataContext : IdentityDbContext<User>
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
         modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
+
+        modelBuilder.Entity<Product>().HasIndex(c => c.Name).IsUnique();
+        modelBuilder.Entity<ProductCategory>().HasIndex("ProductId", "CategoryId" ).IsUnique();
 
 
 
