@@ -23,45 +23,15 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        List<Product>? products = await _context.Productcs
-            .Include(p => p.ProductImages)
-            .Include(p => p.ProductCategories)
-            .OrderBy(p => p.Description)
-            .ToListAsync();
+        List<Product> products = await _context.Productcs
+        .Include(p => p.ProductImages)
+        .Include(p => p.ProductCategories)
+        .OrderBy(p => p.Description)
+        .ToListAsync();
 
-        List<ProductsHomeViewModel> productsHome = new() {  new ProductsHomeViewModel() };
-        int i = 1;
-        foreach ( Product? product in products)
-        {
-            if(i == 1)
-            {
-                productsHome.LastOrDefault().Product1 = product;
-            }
-            if(i == 2)
-            {
-                productsHome.LastOrDefault().Product2 = product;
-
-            }
-
-
-            if (i == 3)
-            {
-                productsHome.LastOrDefault().Product3 = product;
-            }
-            if (i == 4)
-            {
-                productsHome.LastOrDefault().Product4 = product;
-                productsHome.Add(new ProductsHomeViewModel());
-                i = 0;
-
-            }
-            i ++;
-
-        }
-
-        HomeViewModel model = new HomeViewModel { Products = productsHome };
+        HomeViewModel model = new() { Products = products };
         User user = await _userHelper.GetUserAsync(User.Identity.Name);
-        if(user != null)
+        if (user != null)
         {
             model.Quantity = await _context.TemporalSales
                 .Where(ts => ts.User.Id == user.Id)
@@ -69,6 +39,7 @@ public class HomeController : Controller
         }
 
         return View(model);
+
     }
 
     public async Task<IActionResult> Add(int? id)
