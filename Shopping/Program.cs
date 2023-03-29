@@ -63,6 +63,8 @@ builder.Services.AddScoped<IUserHelper, UserHelper>(); // Mandar la interface pe
 builder.Services.AddScoped<IComboHelper, ComboHelper>();
 builder.Services.AddScoped<IBlobHelper, BlobHelper>();
 builder.Services.AddScoped<IMailHelper,  MailHelper>();
+builder.Services.AddScoped<IOrdersHelper, OrdersHelper>();
+
 
 
 
