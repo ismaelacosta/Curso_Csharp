@@ -9,11 +9,13 @@ namespace Shopping.Data
     {
         private readonly DataContext _context;
         private readonly IUserHelper _userHelper;
+        private readonly IBlobHelper _blobHelper;
 
-        public SeedDb(DataContext context, IUserHelper userHelper)
+        public SeedDb(DataContext context, IUserHelper userHelper, IBlobHelper blobHelper)
         {
             _context = context;
             _userHelper = userHelper;
+            _blobHelper = blobHelper;
         }
 
         public async Task SeedAsync()
@@ -23,9 +25,10 @@ namespace Shopping.Data
             await CheckCategoriesAsync();
             await CheckCountriesAsync();
             await CheckRolesAsync();
+           
 
             await CheckUserAsync("1010", "Roberto", "Acosta", "ismael10barca@yopmail.com", "3223114620", "Calle Durazno", UserType.Admin);
-            await CheckUserAsync("2020", "Dulce", "Acosta", "dulce@yopmail.com", "3223114620", "Calle Durazno", UserType.User);
+            await CheckUserAsync("2020", "Dulce", "Acosta", "dulce@yopmail.com", "3223114620", "Calle Durazno",UserType.User);
 
         }
 
@@ -36,11 +39,16 @@ namespace Shopping.Data
             string email,
             string phone,
             string address,
+           // string image,
             UserType userType)
         {
             User user = await _userHelper.GetUserAsync(email);
             if (user == null)
             {
+
+                //TODO : Uncomment this and add string image
+                // Guid imageId = await _blobHelper.UploadBlobAsync($"{Environment.CurrentDirectory})\\wwwroot\\images\\users\\{image}", "users");
+
                 user = new User
                 {
                     FirstName = firstName,
@@ -51,8 +59,12 @@ namespace Shopping.Data
                     Adrress = address,
                     Document = document,
                     City = _context.Cities.FirstOrDefault(),
+                    //ImageId = imageId,
+                    
                     UserType = userType,
                 };
+
+                
 
                 await _userHelper.AddUserAsync(user,"123456");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
