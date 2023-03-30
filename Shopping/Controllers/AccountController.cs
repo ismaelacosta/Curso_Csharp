@@ -9,6 +9,7 @@ using Shopping.Helpers;
 using Shopping.Models;
 using Shopping.Common;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+using Vereyon.Web;
 
 namespace Shopping.Controllers
 {
@@ -20,14 +21,16 @@ namespace Shopping.Controllers
         private readonly IComboHelper _comboHelper;
         private readonly IBlobHelper _blobHelper;
         private readonly IMailHelper _mailHelper;
+        private readonly IFlashMessage _flashMessage;
 
-        public AccountController(IUserHelper userHelper, DataContext context, IComboHelper comboHelper, IBlobHelper blobHelper, IMailHelper mailHelper)
+        public AccountController(IUserHelper userHelper, DataContext context, IComboHelper comboHelper, IBlobHelper blobHelper, IMailHelper mailHelper, IFlashMessage flashMessage)
         {
             _userHelper = userHelper;
             _context = context;
            _comboHelper = comboHelper;
             _blobHelper = blobHelper;
             _mailHelper = mailHelper;
+            _flashMessage = flashMessage;
         }
 
         [HttpGet]
@@ -54,16 +57,16 @@ namespace Shopping.Controllers
 
                 if (result.IsLockedOut)
                 {
-                    ModelState.AddModelError(string.Empty, "Ha superado el maximo numero de intentos, su cuenta esta bloqueada, intente de nuevo en 5 minutos");
+                    _flashMessage.Danger("Ha superado el máximo número de intentos, su cuenta está bloqueada, intente de nuevo en 5 minutos.");
                 }
                 else if (result.IsNotAllowed)
                 {
-                    ModelState.AddModelError(string.Empty, "El usuario no ah sido habilitado, debe de seguir las instrucciones del correo enviado para poder habilitar el usuario.");
+                    _flashMessage.Danger("El usuario no ha sido habilitado, debes de seguir las instrucciones enviadas al correo para poder habilitarlo.");
 
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Email o contrasena incorrectos.");
+                    _flashMessage.Danger("Email o contraseña incorrectos.");
 
                 }
             }
@@ -116,7 +119,8 @@ namespace Shopping.Controllers
                 User user = await _userHelper.AddUserAsync(model);
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "Este correo ya esta siendo usado.");
+                    _flashMessage.Danger("Este correo ya está siendo usado.");
+                    
                     model.Countries = await _comboHelper.GetComboCountriesAsync();
                     model.States = await _comboHelper.GetComboStatesAsync(model.CountryId);
                     model.Cities = await _comboHelper.GetComboCitiesAsync(model.StateId);
@@ -134,8 +138,9 @@ namespace Shopping.Controllers
                 Common.Response response = _mailHelper.SendMail($"{model.FirstName} {model.LastName}",model.Username, "Shopping - Confirmación de Email", $"<h1>Shopping - Confirmación de Email</h1>" + $"Para habilitar el usuario por favor hacer click en el siguiente link:, " + $"<hr/><br/><p><a href = \"{tokenLink}\">Confirmar Email</a></p>");
                 if (response.IsSuccess)
                 {
-                    ViewBag.Message = "Las instrucciones para habilitar el usuario han sido enviadas al correo";
-                    return View(model);
+                    _flashMessage.Info("Usuario registrado. Para poder ingresar al sistema, siga las instrucciones que han sido enviadas a su correo.");
+                    return RedirectToAction(nameof(Login));
+
                 }
 
                 ModelState.AddModelError(string.Empty, response.Message);
@@ -312,7 +317,7 @@ namespace Shopping.Controllers
                 User user = await _userHelper.GetUserAsync(model.Email);
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "El email no corresponde a ningun usuario registrado");
+                    _flashMessage.Danger("El email no corresponde a ningún usuario registrado.");
                     return View(model);
                 }
 
@@ -329,8 +334,8 @@ namespace Shopping.Controllers
                     $"Para recuperar la contraseña haga click en el siguiente enlace:" +
                     $"<p><a href = \"{link}\">Reset Password</a></p>");
 
-                ViewBag.Message = "Las instrucciones para recuperar la contraseña han sido enviadas a su correo.";
-                return View();
+                _flashMessage.Info("Las instrucciones para recuperar la contraseña han sido enviadas a su correo.");
+                return RedirectToAction(nameof(Login));
             }
 
             return View(model);
@@ -350,15 +355,15 @@ namespace Shopping.Controllers
                 IdentityResult result = await _userHelper.ResetPasswordAsync(user, model.Token, model.Password);
                 if (result.Succeeded)
                 {
-                    ViewBag.Message = "Contraseña cambiada con éxito.";
-                    return View();
+                    _flashMessage.Info("Contraseña cambiada con éxito.");
+                    return RedirectToAction(nameof(Login));
                 }
 
-                ViewBag.Message = "Error cambiando la contrasena";
+                _flashMessage.Danger("Error cambiando la contraseña.");
                 return View(model);
             }
 
-            ViewBag.Message = "Usuario no encontrado.";
+            _flashMessage.Danger("Usuario no encontrado.");
             return View(model);
         }
 
