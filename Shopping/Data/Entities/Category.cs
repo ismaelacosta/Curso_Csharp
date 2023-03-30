@@ -12,4 +12,8 @@ public class Category
     public string Name { get; set; }
 
     public ICollection<ProductCategory> ProductCategories { get; set; }
+
+    [Display(Name = "# Productos")]
+    public int ProductsNumber => ProductCategories == null ? 0 : ProductCategories.Count();
+
 }
