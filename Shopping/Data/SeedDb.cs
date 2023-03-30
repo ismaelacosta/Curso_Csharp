@@ -25,7 +25,7 @@ namespace Shopping.Data
             await CheckCategoriesAsync();
             await CheckCountriesAsync();
             await CheckRolesAsync();
-           
+            await CheckProductsAsync();
 
             await CheckUserAsync("1010", "Roberto", "Acosta", "ismael@yopmail.com", "3223114620", "Calle Durazno","chicharito.jpg", UserType.Admin);
             await CheckUserAsync("2020", "Rafael", "Acosta", "rafa@yopmail.com", "3223114620", "Calle Durazno", "cristiano.jpg", UserType.User);
@@ -47,7 +47,6 @@ namespace Shopping.Data
             if (user == null)
             {
 
-                //TODO : Uncomment this and add string image
                 Guid imageId = await _blobHelper.UploadBlobAsync($"{Environment.CurrentDirectory}\\wwwroot\\images\\users\\{image}", "users");
 
                 user = new User
@@ -130,7 +129,7 @@ namespace Shopping.Data
                 _context.Categories.Add(new Entities.Category { Name = "Ropa" });
                 _context.Categories.Add(new Entities.Category { Name = "Calzado" });
                 _context.Categories.Add(new Entities.Category { Name = "Belleza" });
-                _context.Categories.Add(new Entities.Category { Name = "Nutricion" });
+                _context.Categories.Add(new Entities.Category { Name = "Alimentos" });
                 _context.Categories.Add(new Entities.Category { Name = "Deportes" });
                 _context.Categories.Add(new Entities.Category { Name = "Apple" });
                 _context.Categories.Add(new Entities.Category { Name = "Mascotas" });
@@ -139,5 +138,50 @@ namespace Shopping.Data
             }
 
         }
+
+        private async Task CheckProductsAsync()
+        {
+            if (!_context.Productcs.Any())
+            {
+                await AddProductAsync("Balon Void", 320M, 12F, new List<string>() {"Deportes" }, new List<string>() { "balon.jpg" });
+                await AddProductAsync("Camisa", 50M, 20F, new List<string>() { "Ropa", "Deportes" }, new List<string>() { "camisa.png" });
+                await AddProductAsync("Chetos", 30M, 12F, new List<string>() { "Alimentos" }, new List<string>() { "chetos.png" });
+                await AddProductAsync("Iphone", 22000M, 10F, new List<string>() { "Tecnologia", "Apple" }, new List<string>() { "iphone.jpg" });
+                await AddProductAsync("Leche Lala", 50M, 6F, new List<string>() { "Alimentos" }, new List<string>() { "leche.png" });
+                await AddProductAsync("Mouse Gamer", 500M, 24F, new List<string>() { "Tecnologia" }, new List<string>() { "mouse.jpg" });
+                await AddProductAsync("Galletas Oreo", 18M, 12F, new List<string>() { "Alimentos" }, new List<string>() { "oreo.jpg" });
+                await AddProductAsync("Tennis Nike", 1200M, 6F, new List<string>() { "Calzado" }, new List<string>() { "tennis.png" });
+                await AddProductAsync("Sobre Whiskas", 32M, 6F, new List<string>() { "Mascotas" }, new List<string>() { "whiskas.jpg" });
+
+            }
+        }
+
+        private async Task AddProductAsync(string name, decimal price, float stock, List<string> categories, List<string> images)
+        {
+            Product product = new()
+            {
+                Description = name,
+                Name = name,
+                Price = price,
+                Stock = stock,
+                ProductCategories = new List<ProductCategory>(),
+                ProductImages = new List<ProductImage>()
+            };
+
+            foreach (string? category in categories)
+            {
+                product.ProductCategories.Add(new ProductCategory { Category = await _context.Categories.FirstOrDefaultAsync(c => c.Name == category) });
+            }
+
+
+            foreach (string? image in images)
+            {
+                Guid imageId = await _blobHelper.UploadBlobAsync($"{Environment.CurrentDirectory}\\wwwroot\\images\\products\\{image}", "products");
+                product.ProductImages.Add(new ProductImage { ImageId = imageId });
+            }
+
+            _context.Productcs.Add(product);
+        }
+
     }
 }
