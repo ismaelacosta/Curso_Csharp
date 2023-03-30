@@ -280,6 +280,12 @@ namespace Shopping.Controllers
                 .ThenInclude(pc => pc.Category)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+
             List<Category> categories = product.ProductCategories.Select( pc => new Category
             {
                 Id  = pc.Category.Id,
@@ -290,7 +296,7 @@ namespace Shopping.Controllers
             AddCategoryProductViewModel model = new()
             {
                 ProductId = product.Id,
-                Categories = await _comboHelper.GetComboCategoriasAsync(),
+                Categories = await _comboHelper.GetComboCategoriasAsync(categories),
             };
 
             return View(model);
