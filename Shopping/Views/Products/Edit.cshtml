@@ -2,8 +2,10 @@
 
 @{
     ViewData["Title"] = "Producto";
-    
+    Layout = null;
 }
+
+<flash dismissable="true" />
 
 <div class="container smfont">
     <form asp-action="Edit" enctype="multipart/form-data" autocomplete="off" asp-route-id="@Model.Id" onsubmit="return jQueryAjaxPost(this);">
@@ -13,7 +15,7 @@
             <partial name="_EditProduct" />
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-primary" asp-action="Index"><i class="fa fa-ban"></i> Cancelar</button>
+            <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal"><i class="fa fa-ban"></i> Cancelar</button>
             <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Guardar</button>
         </div>
     </form>

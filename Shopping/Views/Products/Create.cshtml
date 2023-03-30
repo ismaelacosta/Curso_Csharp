@@ -1,13 +1,11 @@
 ﻿@model Shopping.Models.CreateProductViewModel
 
 @{
-    ViewData["Title"] = "Create";
-    
+    ViewData["Title"] = "Producto";
+    Layout = null;
 }
 
-<h1>Crear</h1>
-
-<h4>Producto</h4>
+<flash dismissable="true" />
 
 <div class="container smfont">
     <form asp-action="Create" enctype="multipart/form-data" autocomplete="off" asp-route-id="@Model.Id" onsubmit="return jQueryAjaxPost(this);">
@@ -16,9 +14,9 @@
             <input type="hidden" asp-for="Categories" />
             <partial name="_CreateProduct" />
         </div>
-        <div class="form-group">
-            <input type="submit" value="Crear" class="btn btn-outline-primary" />
-            <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal"><i class="fa fa-ban"></i> Cancelar</button>
+            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Guardar</button>
         </div>
     </form>
 </div>
