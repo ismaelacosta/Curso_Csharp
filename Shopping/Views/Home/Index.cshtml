@@ -20,10 +20,13 @@
 <h1>Shopping</h1>
 <h3>Categorías</h3>
 
+
+
 <div class="mb-2">
     @foreach (var item in Model.Categories)
     {
-        <span>@item.Name&nbsp;&nbsp;</span>
+        <span> <a href="@Url.Action("Index", "Home", new { searchString = item.Name})"><strong> @item.Name&nbsp;</strong></a></span>
+
     }
 </div>
 
