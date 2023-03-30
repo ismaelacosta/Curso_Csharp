@@ -27,8 +27,9 @@ namespace Shopping.Data
             await CheckRolesAsync();
            
 
-            await CheckUserAsync("1010", "Roberto", "Acosta", "ismael10barca@yopmail.com", "3223114620", "Calle Durazno", UserType.Admin);
-            await CheckUserAsync("2020", "Dulce", "Acosta", "dulce@yopmail.com", "3223114620", "Calle Durazno",UserType.User);
+            await CheckUserAsync("1010", "Roberto", "Acosta", "ismael@yopmail.com", "3223114620", "Calle Durazno","chicharito.jpg", UserType.Admin);
+            await CheckUserAsync("2020", "Rafael", "Acosta", "rafa@yopmail.com", "3223114620", "Calle Durazno", "cristiano.jpg", UserType.User);
+            await CheckUserAsync("3030", "Dulce", "Acosta", "dulce@yopmail.com", "3223114620", "Calle Durazno","messi.png",UserType.User);
 
         }
 
@@ -39,7 +40,7 @@ namespace Shopping.Data
             string email,
             string phone,
             string address,
-           // string image,
+            string image,
             UserType userType)
         {
             User user = await _userHelper.GetUserAsync(email);
@@ -47,7 +48,7 @@ namespace Shopping.Data
             {
 
                 //TODO : Uncomment this and add string image
-                // Guid imageId = await _blobHelper.UploadBlobAsync($"{Environment.CurrentDirectory})\\wwwroot\\images\\users\\{image}", "users");
+                Guid imageId = await _blobHelper.UploadBlobAsync($"{Environment.CurrentDirectory}\\wwwroot\\images\\users\\{image}", "users");
 
                 user = new User
                 {
@@ -59,7 +60,7 @@ namespace Shopping.Data
                     Adrress = address,
                     Document = document,
                     City = _context.Cities.FirstOrDefault(),
-                    //ImageId = imageId,
+                    ImageId = imageId,
                     
                     UserType = userType,
                 };

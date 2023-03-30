@@ -13,8 +13,6 @@ namespace Shopping.Helpers
         {
             _configuration = configuration;
         }
-
-        //TODO: Corregir el error de conexion tls para poder enviar correo electronico
         public Response SendMail(string toName, string toEmail, string subject, string body)
         {
             try
