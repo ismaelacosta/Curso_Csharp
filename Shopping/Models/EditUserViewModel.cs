@@ -39,7 +39,7 @@ namespace Shopping.Models
 
         [Display(Name = "Foto")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://localhost:7066/images/noimage.png"
+            ? $"https://shoppingcursocsharp.azurewebsites.net/images/noimage.png"
             : $"https://shoppingcsharpcourse.blob.core.windows.net/users/{ImageId}";
 
         [Display(Name = "Image")]

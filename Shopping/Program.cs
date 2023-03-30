@@ -27,7 +27,6 @@ builder.Services.AddDbContext<DataContext>( o =>
 });
 
 
-//TODO : Make stringest password
 builder.Services.AddIdentity<User, IdentityRole>(cfg =>
 {
     //Validacion
@@ -36,15 +35,15 @@ builder.Services.AddIdentity<User, IdentityRole>(cfg =>
 
     // Condiciones de los usuarios
     cfg.User.RequireUniqueEmail = true;
-    cfg.Password.RequireDigit = false;
+    cfg.Password.RequireDigit = true;
     cfg.Password.RequiredUniqueChars = 0;
-    cfg.Password.RequireLowercase = false;
-    cfg.Password.RequireUppercase = false;
-    cfg.Password.RequireNonAlphanumeric = false;
-    cfg.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+    cfg.Password.RequireLowercase = true;
+    cfg.Password.RequireUppercase = true;
+    cfg.Password.RequireNonAlphanumeric = true;
+    cfg.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     cfg.Lockout.MaxFailedAccessAttempts = 3;
     cfg.Lockout.AllowedForNewUsers = true;
-    //cfg.Password.RequiredLength = 6;
+    cfg.Password.RequiredLength = 10;
 
 })
     .AddDefaultTokenProviders()
