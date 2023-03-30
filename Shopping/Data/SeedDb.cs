@@ -20,16 +20,14 @@ namespace Shopping.Data
 
         public async Task SeedAsync()
         {
-            await _context.Database.EnsureCreatedAsync(); // Crea la base de datos y aplica las migraciones
-
+            await _context.Database.EnsureCreatedAsync();
             await CheckCategoriesAsync();
             await CheckCountriesAsync();
             await CheckRolesAsync();
             await CheckProductsAsync();
-
-            await CheckUserAsync("1010", "Roberto", "Acosta", "ismael@yopmail.com", "3223114620", "Calle Durazno","chicharito.jpg", UserType.Admin);
-            await CheckUserAsync("2020", "Rafael", "Acosta", "rafa@yopmail.com", "3223114620", "Calle Durazno", "cristiano.jpg", UserType.User);
-            await CheckUserAsync("3030", "Dulce", "Acosta", "dulce@yopmail.com", "3223114620", "Calle Durazno","messi.png",UserType.User);
+            await CheckUserAsync("1010","Roberto","Acosta","ismael@yopmail.com","3223114620","Durazno","chicharito.jpg",UserType.Admin);
+            await CheckUserAsync("2020","Rafael","Acosta","rafa@yopmail.com","3223114620","Durazno","cristiano.jpg",UserType.User);
+            await CheckUserAsync("3030","Dulce","Acosta","dulce@yopmail.com","3223114620","Durazno","messi.png",UserType.User);
 
         }
 
@@ -66,7 +64,7 @@ namespace Shopping.Data
 
                 
 
-                await _userHelper.AddUserAsync(user,"123456");
+                await _userHelper.AddUserAsync(user,"FCbarcelona10!");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
 
                 string token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);

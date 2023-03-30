@@ -4,6 +4,7 @@ using Shopping.Data;
 using Shopping.Data.Entities;
 using Shopping.Helpers;
 using Vereyon.Web;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,7 +44,7 @@ builder.Services.AddIdentity<User, IdentityRole>(cfg =>
     cfg.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     cfg.Lockout.MaxFailedAccessAttempts = 3;
     cfg.Lockout.AllowedForNewUsers = true;
-    cfg.Password.RequiredLength = 10;
+    //cfg.Password.RequiredLength = 10;
 
 })
     .AddDefaultTokenProviders()
