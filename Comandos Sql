@@ -1,0 +1,112 @@
+CREATE DATABASE sistema_veterinaria;
+
+DROP DATABASE IF EXISTS sistema_veterinaria; 
+
+CREATE TABLE usuarios(
+	id int(11) NOT NULL AUTO_INCREMENT,
+	nombre varchar(80) NOT NULL,
+	apellido varchar(80) NOT NULL, 
+	fecha_nacimiento DATETIME NULL,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE PUBLICACIONES(
+	id int(11) NOT NULL AUTO_INCREMENT,
+	usuario_id int(11) NOT NULL,
+	titulo varchar(80) NOT NULL, 
+	texto text NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+
+
+DROP TABLE IF EXISTS usuarios;
+
+AGREGAR COLUMNAS:
+ALTER TABLE usuarios ADD COLUMN telefono varchar(45) NULL;
+
+ELIMINAR COLUMNAS:
+ALTER TABLE usuarios DROP telefono;
+
+MODIFICAR COLUMNAS:
+ALTER TABLE usuarios ATLER COLUMN telefono varchar(35) NULL;
+
+AGREGAR CAMPOS
+INSERT INTO usuarios (nombre, apellido, fecha_nacimiento, telefono) 
+VALUES('Roberto','Acosta','2000-07-22 10:00:00','6561234567');
+
+ELIMINAR UNA FILA
+DELETE FROM usuarios WHERE id=1;
+
+MODIFICAR DATO
+UPDATE usuarios SET nombre = 'Ismael', apellido = 'Lopez' WHERE id = 1;
+
+CONSULTAR DATOS
+SELECT * FROM usuarios;
+
+BUSCAR EL USUARIO CON ID 1
+SELECT * FROM usuarios WHERE id = 1;
+
+BUSCAR EL NOMBRE Y APELLIDO DEL USUARIO CON ID 1
+SELECT nombre, apellidO FROM usuarios WHERE id = 1;
+
+OPCIONES 
+COUNT()
+LIKE
+CONCAT
+
+CONSULTAR COMPLEJAS
+
+SELECT p.*, 
+CONCAT(u.nombre,'',u.apellido) as 'autor'
+FROM publicaciones p, usuarios u
+WHERE p.autor_id = u.id;
+
+
+
+SELECT p.*, 
+CONCAT(u.nombre,'',u.apellido) as 'autor'
+FROM publicaciones p INNER JOIN usuarios u
+ON p.autor_id = u.id;
+
+
+
+SQL PARA ESTADISTICAS
+COUNT(*) CUENTA LA CANTIDAD DE FILAS
+MAX(PUNTAJE) DEVUELVE EL MAXIMO PUNTAJE
+MIN(PUNTAJE) DEVEULVE EL MINIMO PUNTAJE
+AVG(PUNTAJE) DEVUELVE EL PUNTAJE PROMEDIO
+SUM(PRECIO) DEVUVELVE UNA SUMATORIA DE PRECIOS
+
+
+SUB CONSULTAS
+
+SELECT * FROM curso.publicaciones WHERE usuario_id IN (1, 2, 3);
+
+DINAMICAMENTE
+
+SELECT * FROM curso.publicaciones WHERE usuario_id IN (
+	SELECT id FROM curso.usuario WHERE NOMBRE like 'L%';
+);
+
+NOT IN seria lo contrario
+
+
+CONCATENAR CONSULTAS
+
+SELECT * FROM curso.usuarios WHERE nombre LIKE 'L%'
+UNION
+SELECT * FROM curso.usuarios WHERE nombre LIKE 'P%';
+
+
+
+AGRUPAR CONSULTAS
+
+SELECT * FROM curso.usuarios GROUP BY nombre;  - no se repita lo mismo 
+
+
+PARA TIPO FECHA
+MONTH()
+DAU()
+YEAR()
