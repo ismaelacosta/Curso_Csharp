@@ -126,3 +126,14 @@ IdentityResult - Response de algo
 
 sbefhkpzhzseoqvl
 
+
+Comandos importantes para ef por consola
+paquetes importantes 
+	entityframeworkcore.
+				SqLite
+				 Design
+
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add nombremigration
+dotnet ef database update
+
