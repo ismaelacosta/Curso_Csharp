@@ -1,0 +1,65 @@
+VARIABLES
+USER-DEFINED VARIABLES
+SET @passing = 66; - crear la variable SET @passing := 66; same work
+
+SELECT @name := "Ismael"; - Retorna el valor ademas de crearlo
+
+
+in select = is a comparation statement
+
+
+two types of stored routines
+
+stored procedures
+section of code that we can call whatever we need 
+we can send parameteres 
+
+DELIMETERS - CHANGE THIS TO WITH THIS LINE : DELIMETER $$
+END $$
+DELIMETER ;
+
+EXAMPLE :
+
+DELIMETER //
+CREATE PROCEDURE FRIEND()
+BEGIN
+
+	SELECT  * FROM friends//
+
+END //
+DELIMETER ;
+
+
+EXAMPLE OF USING IT:
+CALL friend()
+
+
+stored functions
+
+
+Sql script
+
+
+CREATE TABLE pets(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50),
+  owner VARCHAR(50), 
+  species VARCHAR(50),
+  sex CHAR(1),
+  birth DATE,
+  death DATE
+);
+
+INSERT INTO pets(name, owner, species, sex, birth, death) VALUES 
+('fofa','ismael','cat','F','2021-08-22',NULL),
+('fofo','ismael','cat','M','2021-08-22','2021-08-23'),
+('terrible','ismael','cat','M',NOW(),NULL);
+
+
+CREATE PROCEDURE pets_female()
+BEGIN
+  SELECT * FROM pets
+  WHERE sex = "F";
+END //
+
+CALL pets_female()
