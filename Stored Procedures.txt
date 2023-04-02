@@ -63,3 +63,91 @@ BEGIN
 END //
 
 CALL pets_female()
+
+
+
+-------------------------------------------------------------------------
+Segundo Video
+
+que son 
+son scrips de sql (bloquees de codigo ) que se compilan y alamcaenan en la misma base de datos
+
+se usan para dml : select, insert, update y delete
+
+ESTRUCTURA BASICA
+
+DELIMETER $$
+
+CREATE PROCEDURE spNombre() O uspNombre
+BEGIN
+      CODIGO_MYSQL;
+END
+
+$$
+
+DELIMETER ; 
+
+
+VENTAJAS
+el codigo se mantiene dentor de l abase de ddatos y no depende de archivos externos
+
+tienen una ejecuion mas rapida poque evitan faces de procesamiento al momento de la ejecucion 
+
+
+permiten utilizar parametros qu ese pueden ser de los siguietnes tipos
+  
+  in son el tipo de parametro por omision . permiten pasarle datos al procedimiento almacenado, para que los considere en el procesamiento.
+
+  out permiten retornar un valor, adicional al resultado ordinario del procedimiento almacenado
+
+  inout son los que se pueden actuar como entrada y como salida. son utiles cuando a un procedimeinto almacenado se le traspasa un dato para que lo transforme.
+
+como se agregan
+
+CREATE PROCEDURE spNombre(tipo nombre datatype, )
+
+
+parametros de salida
+
+CREATE PROCEDURE spCuentaEmpleados( OUT par_total_empleados int)
+BEGIN 
+      SELECT COUNT(*) FROM empleados INTO par_total_empleado;
+END
+
+PARA LLAMAR
+CALL spCuentaEmpleados(@recibe_salida)
+
+
+CONDICIONES IF
+IF condicion THEN
+  CODIGO SQL;
+END IF;
+
+IF condicion THEN
+  CODIGO SQ;
+ELSE
+  CODIGO SQL;
+END IF;
+
+
+VARIABLES LOCALES
+FUERA DE UN PROCEDIMIENTO
+SET @id_materia = 'AG';
+
+DENTRO DE UN PROCEDIMIENTO
+DECLARA var_id_numemp int;
+SET var_id_numemp = 10;
+
+
+TIPOS DE CONSULTAS
+
+ESCALES - RETORNAN UN UNICO VALOR
+
+TABULARES - RETORNAR UN ARREGLO DE DATOS BIDIMENSIONALES
+
+con indicador de estado 
+
+
+funciones de mysql
+
+found_rows ();- busca cuantos registros encontro en un momento dado;
