@@ -73,22 +73,27 @@
                 $("#StateId").append('<option value="0">[Selecciona un Departamento / Estado...]</option>');
                 $("#CityId").empty();
                 $("#CityId").append('<option value="0">[Selecciona una ciudad...]</option>');
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("GetStates")',
-                    dataType: 'json',
-                    data: { countryId: $("#CountryId").val() },
-                    success: function (states) {
-                        $.each(states, function (i, state) {
-                            $("#StateId").append('<option value="'
-                                + state.id + '">'
-                                + state.name + '</option>');
-                        });
-                    },
-                    error: function (ex) {
-                        alert('Failed to retrieve states.' + ex);
-                    }
-                });
+                if (!($("#CountryId").val() == 0)) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetStates")',
+                        dataType: 'json',
+                        data: { countryId: $("#CountryId").val() },
+                        success: function (states) {
+                            $.each(states, function (i, state) {
+                                $("#StateId").append('<option value="'
+                                    + state.id + '">'
+                                    + state.name + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            alert('Failed to retrieve states.' + ex);
+                        }
+                    });
+                }
+
+
+
                 return false;
             })
             $("#StateId").change(function () {
@@ -101,7 +106,6 @@
                     data: { stateId: $("#StateId").val() },
                     success: function (cities) {
                         $.each(cities, function (i, city) {
-                            debugger;
                             $("#CityId").append('<option value="'
                                 + city.id + '">'
                                 + city.name + '</option>');
